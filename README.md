@@ -25,13 +25,38 @@ the good stuff floats and the junk sinks.
 
 A ranked table like this:
 
-| # | Score | Item | Line/Era | Price (¥ / ~USD) | Why it's a good find | Ends | Link |
-|---|-------|------|----------|------------------|----------------------|------|------|
-| 1 | 84 | Stripe linen tailored jacket, M | CDG HP AD1995 | ¥29,800 / ~$199 | Mid-90s Homme Plus tailoring almost never lists under $200, and it's flawless | Jul 20 | *(verified live link)* |
-| 2 | 80 | Skull allover sarouel pants, M | CDG HP AD2010 | ¥12,800 / ~$85 | Cheapest genuine Homme Plus archive on the board; no flaws noted | Jul 20 | *(verified live link)* |
+| # | Score | Item | Line/Era | Price (¥ / ~USD) | Bids | Why it's a good find | Ends | Link |
+|---|-------|------|----------|------------------|------|----------------------|------|------|
+| 1 | 90 | "McQueen" pants, 44, beige | MMM 10 ここのえ期 | ¥24,800 / ~$165 | 0 | Sleeper — named archive model in Kokonoe-era tagging, flawless, 7 days of runway | Jul 23 | *(verified live link)* |
+| 2 | 89 | Stripe linen tailored jacket, M | CDG HP AD1995 | ¥29,800 / ~$199 | 0 | Sleeper — mid-90s Homme Plus tailoring under $200, zero competition | Jul 20 | *(verified live link)* |
 
 Plus the pieces it *rejected* and why — showing the filter's work rather than just
 claiming it ran.
+
+## Bid count is a signal, not a sort key
+
+The intuitive move is to rank by most bids: more bids = more demand = better piece.
+Resist it. **Demand is what you're bidding against.** A heavily-bid lot is one the market
+has already found and priced efficiently — you'll be outbid, or you'll overpay.
+
+What bid count actually tells you is whether the market *agrees* with your rarity score,
+and the disagreement is where the money is:
+
+| Bids | High rarity | Low rarity |
+|---|---|---|
+| **Many** | Real piece, but no edge left — the price will climb | Overhyped, skip |
+| **Zero** | **Sleeper — the actual opportunity** | Correctly ignored |
+
+A live example from one run: a 1999AW white-tag Miss Deanna driver's knit — genuinely one
+of the most historically significant pieces on the board — sat at ¥23,001 with **100 bids**
+and three days still to run. Sorting by bids puts it first. But a hundred people were
+already fighting over it, so it was never going to close anywhere near ¥23k. It ranked
+17th. Meanwhile 19 of the other 20 picks had zero bids — those are the ones you're early
+on.
+
+So the skill shows bid count in the table and feeds it into scoring two-sidedly: zero bids
+plus high rarity plus runway earns a **sleeper bonus**; five or more bids takes a penalty,
+because the current price is not the price you'll pay. It always sorts by score.
 
 ## The scoring system (0–100)
 

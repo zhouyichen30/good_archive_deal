@@ -103,10 +103,17 @@ link.
 ```
 ## Top 20 — <date>
 
-| # | Score | Item | Line/Era | Price (yen / ~USD) | Why it's a good find | Ends | Link |
-|---|-------|------|----------|--------------------|----------------------|------|------|
-| 1 | 92 | ... | Artisanal 本人期 | 32,800 / ~219 USD | France-made hand-remade piece; comps run 60k+ | Jul 20 | <verified url> |
+| # | Score | Item | Line/Era | Price (yen / ~USD) | Bids | Why it's a good find | Ends | Link |
+|---|-------|------|----------|--------------------|------|----------------------|------|------|
+| 1 | 92 | ... | Artisanal 本人期 | 32,800 / ~219 USD | 0 | Sleeper — France-made hand-remade piece, comps run 60k+, nobody bidding yet | Jul 20 | <verified url> |
 ```
+
+Sort by **score**, not by bid count. Bid count is shown because it is real signal, but it
+is not a ranking key — see the "Bid count" section in `references/scoring.md` for why
+(short version: heavy bidding means the market already found the deal and the user has no
+edge). Capture `入札 〜件` during verification so the column is real data rather than a
+guess. If the user explicitly asks to sort by bids anyway, do it — but say once what it
+selects for, then respect the call.
 
 **The "Why it's a good find" column is the most important one in the table** — the score
 says *how much* to care, but this says *why*, and that's what the user actually reasons

@@ -48,6 +48,31 @@ Deduct for `傷` (damage), `汚れ` (stains), `使用感` (heavy wear), detached
 - 5–8: live but ends soon (<24h) or higher shipping.
 - 0–4: hard to buy, near-ending, or shipping/proxy overhead eats the deal.
 
+## Bid count: read it as a signal, don't sort by it
+
+Always capture the bid count (`入札 〜件`) when verifying an item, and show it in the
+table. But resist the intuition that "most bids = best find." Bid count measures demand,
+and demand is what you are bidding *against* — a heavily-bid lot is one the market has
+already discovered and priced efficiently. Sorting by it would surface exactly the
+listings where the user has no edge and will likely be outbid or overpay.
+
+What bid count actually tells you is **whether the market agrees with your rarity
+score**. Use that disagreement:
+
+- **Zero bids + high rarity + 2 or more days left** → a sleeper. The market hasn't found
+  it. This is the most valuable thing this skill can surface. Add **+5 to Value** and
+  call it out explicitly in the "why it's a good find" column.
+- **Zero bids + low rarity** → not a sleeper, just correctly ignored. No adjustment.
+- **Many bids (5+) with time remaining** → the current price is not the price the user
+  will pay. Discount **Value by 5–10** to reflect where it will actually close, and say
+  so in the table. Being right about the piece doesn't help if you get outbid.
+- **Many bids + low rarity** → hype outrunning substance. Deduct and usually drop it.
+- **即決 / Buy-It-Now with no bids** → bid count is meaningless here; ignore the axis
+  entirely and judge on price alone.
+
+Note the auction-extension rule too: many Yahoo lots auto-extend when bid near closing,
+so a hot lot's real end time drifts later than listed.
+
 ## Bands
 
 - **80–100** — genuine BUY flag. Lead with these.
