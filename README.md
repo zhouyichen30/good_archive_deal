@@ -70,25 +70,25 @@ because the current price is not the price you'll pay. It always sorts by score.
 
 **80+** = genuine buy flag · **65–79** = worth a look · **under 65** = filtered out.
 
-Full rubric with worked examples: [`archive-deal-finder/references/scoring.md`](archive-deal-finder/references/scoring.md).
+Full rubric with worked examples: [`references/scoring.md`](references/scoring.md).
 
 ## Install
 
-Copy the skill folder into your personal Claude Code skills directory:
+This repo *is* the skill, so clone it straight into your Claude Code skills directory:
 
 ```bash
 # macOS / Linux
-git clone https://github.com/zhouyichen30/good_archive_deal.git
-cp -r good_archive_deal/archive-deal-finder ~/.claude/skills/
+git clone https://github.com/zhouyichen30/good_archive_deal.git ~/.claude/skills/archive-deal-finder
 ```
 
 ```powershell
 # Windows
-git clone https://github.com/zhouyichen30/good_archive_deal.git
-Copy-Item -Recurse good_archive_deal\archive-deal-finder "$env:USERPROFILE\.claude\skills\"
+git clone https://github.com/zhouyichen30/good_archive_deal.git "$env:USERPROFILE\.claude\skills\archive-deal-finder"
 ```
 
 Anything in `.claude/skills/` is available in every Claude Code session on that machine.
+Because the installed folder is a working copy, `git pull` updates the skill in place, and
+your own tweaks can go straight back with `git push`.
 
 ## Use
 
@@ -102,14 +102,14 @@ Just ask, in plain language:
 The helper script can also be run directly to generate search URLs:
 
 ```bash
-python archive-deal-finder/scripts/build_search_urls.py \
+python scripts/build_search_urls.py \
   --brand margiela-replica --brand yohji --type jacket --type pants --max-usd 200
 ```
 
 ## What's inside
 
 ```
-archive-deal-finder/
+.
 ├── SKILL.md                     # workflow, the verify-before-recommend rule, output format
 ├── references/
 │   ├── brands_and_terms.md      # JP search keywords, Margiela tag/era dating, line numbers
@@ -157,7 +157,7 @@ The skill includes a tag/era cheat sheet — quality-tag season codes (`991` = 1
 | スタッフインターナショナル | 2011AW–2017AW |
 | マルジェラジャパン | 2018SS–present |
 
-See [`archive-deal-finder/references/brands_and_terms.md`](archive-deal-finder/references/brands_and_terms.md).
+See [`references/brands_and_terms.md`](references/brands_and_terms.md).
 
 ## Caveat
 
