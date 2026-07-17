@@ -44,6 +44,21 @@ The **Type** column tells you how you'd buy it — `Auction`, `即決` (buy-now)
 `Store/フリマ`. Plus the pieces it *rejected* and why — showing the filter's work rather
 than just claiming it ran.
 
+## Photo gallery
+
+Clothing is visual, and a table of links means opening twenty tabs to see what anything
+looks like. So each run also builds a **local HTML gallery** — a card grid of every find
+with its photo, price, bid count, deadline and a one-line reason, each photo linking
+straight to the listing:
+
+```bash
+python scripts/build_gallery.py items.json -o ~/Desktop/archive-finds.html --open
+```
+
+It writes a *local* file on purpose: Yahoo's photos (`auctions.c.yimg.jp`) have no
+hotlink protection and load fine from disk, whereas a CSP-restricted hosted page blocks
+remote images and would render a wall of broken thumbnails.
+
 ## Bid count is a demand signal, and it surfaces hot lots
 
 Bids measure **demand** — how much the market wants a piece — so the skill treats active

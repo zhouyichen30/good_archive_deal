@@ -113,8 +113,30 @@ one" beats a confident dead link every time.
    verified item-by-item, so give search URLs, not fake specific items). The URL
    patterns are in `references/sources.md`.
 
-7. **Deliver the results.** Ranked table (below). Lead with the standout value calls in
-   2–4 bullets. Note proxy requirement for Yahoo buys.
+7. **Build the photo gallery.** Clothing is visual — a table of links makes the user open
+   20 tabs to see what anything looks like. While verifying each item page, also grab its
+   **first photo URL** (ask the fetch for the main image on `auctions.c.yimg.jp`), then
+   render a local gallery:
+
+   ```bash
+   python scripts/build_gallery.py items.json -o <desktop>/archive-finds.html \
+     -t "Archive finds — <date>" --open
+   ```
+
+   Write `items.json` as an array of `{title, brand, score, type, price_yen, bids, ends,
+   url, image, why}` — only `title` and `url` are required. The script renders a
+   responsive card grid (photo, price, 🔥 bid count, ends, why) where every photo links
+   to the listing.
+
+   **Write it to a local file, not a published page.** Yahoo photos load fine from a
+   local HTML file (no hotlink protection), but a CSP-restricted published page blocks
+   remote images and you'd ship a wall of broken thumbnails. Verify the image URLs
+   resolve (HTTP 200 + `image/*`) before building — a gallery of dead images is worse
+   than no gallery. Note the user's Desktop may be OneDrive-redirected
+   (`~/OneDrive/Desktop`); check before writing there.
+
+8. **Deliver the results.** Ranked table (below) *plus* the gallery path. Lead with the
+   standout value calls in 2–4 bullets. Note proxy requirement for Yahoo buys.
 
 ## Two output modes
 
