@@ -113,8 +113,25 @@ one" beats a confident dead link every time.
    verified item-by-item, so give search URLs, not fake specific items). The URL
    patterns are in `references/sources.md`.
 
-7. **Deliver the Top 20.** Ranked by score, table format (below). Lead with the
-   standout value calls in 2–4 bullets. Note proxy requirement for Yahoo buys.
+7. **Deliver the results.** Ranked table (below). Lead with the standout value calls in
+   2–4 bullets. Note proxy requirement for Yahoo buys.
+
+## Two output modes
+
+**Combined Top 20** (default) — one ranked table across all requested brands.
+
+**Per-brand Top 10** — when the user asks for "top N per brand" or a multi-brand survey:
+one ranked table *per brand*, each its own top 10, mixing all categories (jackets, pants,
+knits, bags, jewelry, etc.) rather than splitting by category. Use the same columns.
+Iterate the full roster in `references/brands_and_terms.md`, men's only.
+
+**Honest scaling note:** verifying every row individually is the core rule, but a
+10-brands × 10-items survey is ~100 listings — too many to open one-by-one in a single
+pass. So at multi-brand-survey scale: **verify the top ~3 priority picks per brand**
+(the hot/high-bid ones and anything you'd actively push), and mark the rest as *"from live
+search — verify before bidding."* Never silently present unverified rows as confirmed.
+Offer to deep-verify any brand or item the user wants to act on. This keeps breadth honest
+instead of pretending 100 rows are all confirmed.
 
 ## Output format
 

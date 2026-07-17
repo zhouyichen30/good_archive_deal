@@ -1,9 +1,13 @@
 # good_archive_deal
 
 A [Claude Code](https://claude.com/claude-code) skill that hunts **underpriced archive
-and vintage avant-garde menswear and accessories** — Maison Martin Margiela, Issey
-Miyake, Comme des Garçons, Yohji Yamamoto — across Yahoo Auctions Japan, eBay, and
-Grailed, then scores and ranks the results into a daily Top 20.
+and vintage avant-garde menswear and accessories** — Margiela, Issey Miyake, Comme des
+Garçons, Yohji Yamamoto, Raf Simons, Helmut Lang, Undercover, Number (N)ine, Jean Paul
+Gaultier, Dries Van Noten and more — across Yahoo Auctions Japan, eBay, and Grailed,
+then scores and ranks the results.
+
+Two modes: a **combined Top 20** across brands, or a **per-brand Top 10** survey of the
+whole roster.
 
 Coverage spans clothing (jackets, coats, pants, tees, knits) **and accessories** (bags,
 rings, bracelets, necklaces, belts, wallets). Accessories are judged on the same

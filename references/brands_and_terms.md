@@ -5,12 +5,35 @@
 Search Yahoo Auctions in Japanese for far better results. Combine a brand term with a
 garment term (e.g. `マルジェラ レプリカ ジャケット`).
 
+**Core roster:**
+
 | Brand | Primary JP terms | Also try |
 |---|---|---|
 | Maison Martin Margiela | `マルタンマルジェラ`, `マルジェラ` | `Maison Margiela`, `MM6`, `アーティザナル` (Artisanal), `レプリカ` (Replica) |
 | Issey Miyake | `イッセイミヤケ`, `ISSEY MIYAKE MEN` | `イッセイミヤケメン`, `A-POC`, `プリーツ` (pleats), `滝沢直己`/`NAOKI TAKIZAWA` |
 | Comme des Garçons | `コムデギャルソン` | `オムプリュス` (Homme Plus), `オム` (Homme), `オムドゥ` (Homme Deux), `ジュンヤワタナベ` (Junya Watanabe), `田中オム` (Tanaka-era Homme) |
 | Yohji Yamamoto | `ヨウジヤマモト` | `Yohji Yamamoto`, `プールオム` (Pour Homme), `ワイズ`/`Y's` |
+
+**Expanded roster** (archive menswear names to add on request or in a full multi-brand run):
+
+| Brand | Primary JP terms | Also try |
+|---|---|---|
+| Raf Simons | `ラフシモンズ`, `RAF SIMONS` | `アーカイブ`, era refs `CLOSER`, `WAVES`, `Replicants`, `Consumed`, `Riot` |
+| Helmut Lang | `ヘルムートラング`, `HELMUT LANG` | `本人期` (pre-2005 Lang era), `アーカイブ`, `GTR`, `デッドストック` |
+| Undercover | `アンダーカバー`, `UNDERCOVER` | `高橋盾`, era refs `RELIEF期`, `Elephant期`, `PAPER DOLL`, `Scab`, `But Beautiful` |
+| Number (N)ine | `ナンバーナイン`, `NUMBER NINE` | `宮下貴裕`, era refs `NIGHT CRAWLER`, `GIVE期`, `TIME期`, `DREAM期`, `黒タグ` |
+| Jean Paul Gaultier | `ゴルチエ`, `ジャンポールゴルチエ` | `GAULTIER`, `オム` (Homme), `パワーネット` (power net), `メッシュ`, `サイバー` |
+| Dries Van Noten | `ドリスヴァンノッテン`, `DRIES VAN NOTEN` | `アーカイブ`, `フローラル`, `刺繍` (embroidery), `タイダイ` |
+| Prada (archive) | `プラダ`, `PRADA` | `アーカイブ`, `ナイロン`, `Sport`, era refs `1999`, `2000` |
+| Vivienne Westwood | `ヴィヴィアンウエストウッド` | `MAN`, `アーミット` (Armour), `オーブ` (orb), `アーカイブ` |
+
+Era/period names (`〜期`) are how Japanese sellers title archive pieces — they're the
+highest-signal keywords for these brands after the brand name itself. The ones above came
+from real listings, so they match how sellers actually write.
+
+For a "per-brand top 10 / all brands" run, iterate the whole roster. These names are broad,
+so lean on `メンズ` (men's) and garment/`アーカイブ` terms to cut noise, and always apply
+the men's + exclusion filters below.
 
 ## Garment terms
 
