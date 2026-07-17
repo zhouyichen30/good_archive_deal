@@ -45,10 +45,16 @@ BRAND_EN = {
 TYPE_JP = {
     "jacket": "ジャケット", "coat": "コート", "pants": "パンツ",
     "tee": "Tシャツ", "shirt": "シャツ", "knit": "ニット",
+    # accessories
+    "bag": "バッグ", "ring": "リング", "bracelet": "ブレスレット",
+    "necklace": "ネックレス", "belt": "ベルト", "wallet": "財布",
 }
 EBAY_CAT = {  # men's sub-category ids
     "jacket": "57988", "coat": "57988", "pants": "57989",
     "tee": "15687", "shirt": "57990", "knit": "11484", "any": "1059",
+    # accessories (men's accessory sub-cats; bags fall under 169291)
+    "bag": "169291", "ring": "137856", "bracelet": "137835",
+    "necklace": "137860", "belt": "2993", "wallet": "2996",
 }
 
 

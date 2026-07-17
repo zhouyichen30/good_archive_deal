@@ -19,12 +19,32 @@ garment term (e.g. `マルジェラ レプリカ ジャケット`).
 - Tee: `Tシャツ`, `カットソー` · Shirt: `シャツ` · Knit/sweater: `ニット`, `セーター`
 - Setup/suit: `セットアップ`, `スーツ`
 
+## Accessory terms
+
+Accessories are in scope. Search them the same way — brand term + accessory term, one
+search per pair, plain keywords only.
+
+- Bag: `バッグ` (also `トートバッグ` tote, `ショルダーバッグ` shoulder, `クラッチ` clutch)
+- Ring: `リング`, `指輪` · Bracelet: `ブレスレット`, `バングル` (bangle)
+- Necklace: `ネックレス` · Wallet: `財布` · Belt: `ベルト`
+- Watch/eyewear if surfaced: `時計`, `眼鏡`/`サングラス`
+
+Accessories that carry real archive value tend to be the house's signature hardware —
+Margiela's Line 11 jewelry (four-stitch rings, screw/bolt bracelets, the "invisible"
+ring), Yohji's silver 950 pieces (e.g. BROTHER-movie bracelets), CDG accessories, and
+Issey hardware. A generic branded pouch is not a grail; judge accessories on the same
+rarity/value axes as clothing, not on brand name alone.
+
 ## Exclusion terms (filter these OUT unless requested)
 
 `レディース` (women's) · `ワンピース` (dress) · `スカート` (skirt) ·
-`スニーカー` (sneakers) · `足袋`/`タビ` boots · `香水` (fragrance) · `財布` (wallet) ·
-`バッグ` (bag). Note diffusion/women's-leaning lines: `me ISSEY MIYAKE`, `PLEATS PLEASE`
-(mostly women's), `MM6` (mostly women's), `Plantation`.
+`スニーカー` (sneakers) · `足袋`/`タビ` boots · `香水` (fragrance). Note
+diffusion/women's-leaning lines: `me ISSEY MIYAKE`, `PLEATS PLEASE` (mostly women's),
+`MM6` (mostly women's), `Plantation`.
+
+Bags, rings, bracelets, necklaces, belts, and wallets are **in scope** — they used to be
+excluded, but accessories are now part of the hunt. Still drop women's-marked accessories
+unless the user says otherwise, since much archive jewelry is unisex but bags often skew.
 
 ## Signal terms that indicate value (rank with these — do NOT search with them)
 

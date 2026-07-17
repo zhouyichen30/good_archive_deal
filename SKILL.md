@@ -4,13 +4,14 @@ description: >-
   Find underpriced archive/vintage avant-garde menswear (Maison Martin Margiela,
   Issey Miyake, Comme des Garçons, Yohji Yamamoto, and similar Japanese/Belgian
   designers) across Yahoo Auctions Japan, eBay, Grailed, and Depop, then score and
-  rank the best deals. Produces a ranked "Top 20 today" list with a 0–100 value
-  score per item. Use this skill whenever the user asks to find archive/grail/rare
-  designer clothing deals, hunt for underpriced Margiela/CDG/Issey/Yohji pieces,
-  run a daily deal check, or get shopping recommendations for collectible menswear —
-  even if they don't say "archive" explicitly (e.g. "find me rare Margiela jackets
-  under 200 bucks", "what good CDG is on Yahoo today", "any grails worth buying").
-  ALWAYS verify each listing is live before recommending it.
+  rank the best deals. Covers clothing AND accessories — jackets, pants, tees, knits,
+  plus bags, rings, bracelets, necklaces, and belts. Produces a ranked "Top 20 today"
+  list with a 0–100 value score per item. Use this skill whenever the user asks to find
+  archive/grail/rare designer deals, hunt for underpriced Margiela/CDG/Issey/Yohji
+  pieces or accessories, run a daily deal check, or get shopping recommendations for
+  collectible menswear — even if they don't say "archive" explicitly (e.g. "find me
+  rare Margiela jackets under 200 bucks", "what good CDG is on Yahoo today", "any grail
+  bracelets worth buying"). ALWAYS verify each listing is live before recommending it.
 ---
 
 # Archive Deal Finder
@@ -54,16 +55,21 @@ one" beats a confident dead link every time.
 ## Daily workflow
 
 1. **Set scope.** Default: brands = Margiela, Issey Miyake, CDG (incl. Homme Plus /
-   Homme / Junya), Yohji. Default budget context = flag anything under about 200 USD
-   as "accessible," but still surface pricier grails and mark them. If the user gave a
-   ceiling, a brand focus, or a garment type (pants/jackets/tees/knits), honor it.
+   Homme / Junya), Yohji. Categories cover clothing **and accessories** — jackets,
+   coats, pants, tees, knits, plus bags, rings, bracelets, necklaces, belts, wallets.
+   Default budget context = flag anything under about 200 USD as "accessible," but still
+   surface pricier grails and mark them. If the user gave a ceiling, a brand focus, or a
+   category (pants / jackets / tees / knits / accessories), honor it.
 
 2. **Pull candidates from Yahoo.** Use the live search URL pattern in
    `references/sources.md` with the Japanese search terms from
    `references/brands_and_terms.md`. Run several searches in parallel (per brand /
-   per garment type) to get a wide pool. Exclude women's (`レディース`), dresses
-   (`ワンピース`), skirts (`スカート`), shoes/sneakers/Tabi boots, and fragrance
-   unless the user wants them.
+   per category, including accessory categories) to get a wide pool. Exclude women's
+   (`レディース`), dresses (`ワンピース`), skirts (`スカート`), shoes/sneakers/Tabi
+   boots, and fragrance unless the user wants them. Bags, rings, bracelets, necklaces,
+   belts, and wallets are in scope — judge them on the same rarity/value axes, not on
+   the brand name alone (a signature Line 11 Margiela ring is a grail; a plain branded
+   pouch is not).
 
    Two search lessons learned the hard way:
    - **Yahoo has no `OR` operator.** A query like `レプリカ ジャケット OR パンツ`
