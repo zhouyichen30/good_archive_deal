@@ -1,9 +1,14 @@
 # good_archive_deal
 
 A [Claude Code](https://claude.com/claude-code) skill that hunts **underpriced archive
-and vintage avant-garde menswear** — Maison Martin Margiela, Issey Miyake, Comme des
-Garçons, Yohji Yamamoto — across Yahoo Auctions Japan, eBay, and Grailed, then scores
-and ranks the results into a daily Top 20.
+and vintage avant-garde menswear and accessories** — Maison Martin Margiela, Issey
+Miyake, Comme des Garçons, Yohji Yamamoto — across Yahoo Auctions Japan, eBay, and
+Grailed, then scores and ranks the results into a daily Top 20.
+
+Coverage spans clothing (jackets, coats, pants, tees, knits) **and accessories** (bags,
+rings, bracelets, necklaces, belts, wallets). Accessories are judged on the same
+rarity/value axes as clothing, not on brand name — a signature Line 11 Margiela ring is
+a grail; a plain branded pouch is not.
 
 The point isn't to list clothes. It's to answer *"what should I actually buy today, and
 why?"* — with links that work.
@@ -102,8 +107,13 @@ Just ask, in plain language:
 The helper script can also be run directly to generate search URLs:
 
 ```bash
+# clothing
 python scripts/build_search_urls.py \
   --brand margiela-replica --brand yohji --type jacket --type pants --max-usd 200
+
+# accessories
+python scripts/build_search_urls.py \
+  --brand margiela --type ring --type bracelet --type bag
 ```
 
 ## What's inside
