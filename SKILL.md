@@ -71,7 +71,23 @@ one" beats a confident dead link every time.
    the brand name alone (a signature Line 11 Margiela ring is a grail; a plain branded
    pouch is not).
 
-   Two search lessons learned the hard way:
+   **Include both auction and fixed-price listings.** The user wants the whole market —
+   timed auctions AND fixed-price buy-now stock — so they can compare and find the best
+   item, not just the best auction. Yahoo's default search already returns both; capture
+   which each one is and show it (see the `Type` column below):
+   - **Auction** — has a current bid (`現在`) and a countdown; may also carry a `即決`
+     (buy-now) price.
+   - **即決 / Buy-It-Now** — a fixed price you can take immediately, no bidding.
+   - **Store/フリマ** — dealer stock and PayPay/Yahoo!フリマ are fixed-price too; treat
+     them the same. See `references/sources.md` for the flea-market URL.
+   A fixed-price listing has no bids to read — that's fine, it's not a downgrade; judge it
+   on price and merits. Don't drop good buy-now stock just because it can't be "hot."
+
+   To **exclude** a trait from Yahoo results, prefix the term with `-` in the query
+   (e.g. `カルティエ ベニュワール -ダイヤ` drops diamond-set pieces). Honor the user's
+   exclusions this way rather than filtering only after fetching.
+
+   Two more search lessons learned the hard way:
    - **Yahoo has no `OR` operator.** A query like `レプリカ ジャケット OR パンツ`
      returns HTTP 404. Run one search per brand+garment pair instead — that's what
      `scripts/build_search_urls.py` generates for you.
@@ -109,17 +125,23 @@ link.
 ```
 ## Top 20 — <date>
 
-| # | Score | Item | Line/Era | Price (yen / ~USD) | Bids | Why it's a good find | Ends | Link |
-|---|-------|------|----------|--------------------|------|----------------------|------|------|
-| 1 | 92 | ... | Artisanal 本人期 | 32,800 / ~219 USD | 0 | Sleeper — France-made hand-remade piece, comps run 60k+, nobody bidding yet | Jul 20 | <verified url> |
+| # | Score | Item | Line/Era | Type | Price (yen / ~USD) | Bids | Why it's a good find | Ends | Link |
+|---|-------|------|----------|------|--------------------|------|----------------------|------|------|
+| 1 | 92 | ... | Artisanal 本人期 | Auction | 32,800 / ~219 USD | 14 | Hot — 14 bids confirm strong demand; comps run 60k+ | Jul 20 | <verified url> |
+| 2 | 88 | ... | Line 10 初期 | 即決 | 45,000 / ~300 USD | — | Buy-now, flawless, priced under the comp — grab-it price | Jul 22 | <verified url> |
 ```
 
-Sort by **score**, not by bid count. Bid count is shown because it is real signal, but it
-is not a ranking key — see the "Bid count" section in `references/scoring.md` for why
-(short version: heavy bidding means the market already found the deal and the user has no
-edge). Capture `入札 〜件` during verification so the column is real data rather than a
-guess. If the user explicitly asks to sort by bids anyway, do it — but say once what it
-selects for, then respect the call.
+The **Type** column tells the user how they'd buy it: `Auction`, `即決` (buy-now), or
+`Store/フリマ` (fixed-price). Show both auctions and fixed-price stock in the same ranked
+table so they can pick the best *item*, not just the best auction. For fixed-price rows the
+Bids cell is `—`.
+
+Default sort is by **score**. Bid count is a **demand signal** — more bids means the
+market wants it — so treat active bidding as a positive and flag hot lots (see the "Bid
+count" section in `references/scoring.md`). When the user asks for hot / most-bid /
+trending items, **sort by bid count descending** and say so (fixed-price rows have no bids,
+so they fall to the bottom of that particular sort — note that rather than hiding them).
+Capture `入札 〜件` during verification so the column is real data rather than a guess.
 
 **The "Why it's a good find" column is the most important one in the table** — the score
 says *how much* to care, but this says *why*, and that's what the user actually reasons

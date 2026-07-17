@@ -7,8 +7,9 @@ per site instead of pretending they're all the same.
 
 | Site | WebFetch works? | How to use it |
 |---|---|---|
-| Yahoo Auctions Japan | YES — search + item pages | Primary source. Search to gather, fetch item pages to verify. |
-| eBay | NO — times out / 403 on item pages | Give the user filtered **search URLs** to browse; don't claim specific items. |
+| Yahoo Auctions Japan | YES — search + item pages | Primary source. Search to gather, fetch item pages to verify. Returns both timed auctions and 即決 (buy-now) stock. |
+| PayPay / Yahoo!フリマ | Often fetchable | Fixed-price flea market, same Yahoo ecosystem. Search: `https://paypayfleamarket.yahoo.co.jp/search/<keywords>`. Good for buy-now items; verify the item page and note it as `Store/フリマ`. If it 403s, hand the user the search URL. |
+| eBay | NO — times out / 403 on item pages | Give the user filtered **search URLs** to browse; don't claim specific items. For watches, eBay's Authenticity Guarantee (physical inspection over ~$2k) is a real advantage worth flagging. |
 | Grailed | NO — 403 | Same: search/browse links only. |
 | Depop | NO — 403/JS-heavy | Search links only. |
 | 2nd Street (2ndstreet.jp) | NO — 403 | Search links only, or note you can't read it. |

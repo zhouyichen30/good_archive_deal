@@ -28,40 +28,34 @@ the good stuff floats and the junk sinks.
 
 ## What it produces
 
-A ranked table like this:
+A ranked table like this — **auctions and fixed-price stock together**, so you compare
+the whole market, not just what's up for bid:
 
-| # | Score | Item | Line/Era | Price (¥ / ~USD) | Bids | Why it's a good find | Ends | Link |
-|---|-------|------|----------|------------------|------|----------------------|------|------|
-| 1 | 90 | "McQueen" pants, 44, beige | MMM 10 ここのえ期 | ¥24,800 / ~$165 | 0 | Sleeper — named archive model in Kokonoe-era tagging, flawless, 7 days of runway | Jul 23 | *(verified live link)* |
-| 2 | 89 | Stripe linen tailored jacket, M | CDG HP AD1995 | ¥29,800 / ~$199 | 0 | Sleeper — mid-90s Homme Plus tailoring under $200, zero competition | Jul 20 | *(verified live link)* |
+| # | Score | Item | Line/Era | Type | Price (¥ / ~USD) | Bids | Why it's a good find | Ends | Link |
+|---|-------|------|----------|------|------------------|------|----------------------|------|------|
+| 1 | 90 | Miss Deanna driver's knit | MMM 1999AW 初期 | Auction | ¥23,001 / ~$153 | 100 | Hot — 100 bids on a 初期 white-tag archive knit | Jul 19 | *(verified live link)* |
+| 2 | 85 | New reconstructed denim, unworn | MMM Artisanal | 即決 | ¥38,800 / ~$259 | — | Buy-now, authenticated, ~60% off retail | Jul 24 | *(verified live link)* |
 
-Plus the pieces it *rejected* and why — showing the filter's work rather than just
-claiming it ran.
+The **Type** column tells you how you'd buy it — `Auction`, `即決` (buy-now), or
+`Store/フリマ`. Plus the pieces it *rejected* and why — showing the filter's work rather
+than just claiming it ran.
 
-## Bid count is a signal, not a sort key
+## Bid count is a demand signal, and it surfaces hot lots
 
-The intuitive move is to rank by most bids: more bids = more demand = better piece.
-Resist it. **Demand is what you're bidding against.** A heavily-bid lot is one the market
-has already found and priced efficiently — you'll be outbid, or you'll overpay.
+Bids measure **demand** — how much the market wants a piece — so the skill treats active
+bidding as a **positive** and flags hot lots:
 
-What bid count actually tells you is whether the market *agrees* with your rarity score,
-and the disagreement is where the money is:
+| Bids | Meaning |
+|---|---|
+| **Many (5+)** | Validated demand — the crowd agrees it's desirable and (for fungible markets like watches) likely authentic. Small score boost, flagged 🔥 *hot* |
+| **1–4** | Early interest building |
+| **Zero** | No demand read yet — judged purely on the piece's own merits |
+| **即決 / fixed** | No bidding to read — judged on price and merits |
 
-| Bids | High rarity | Low rarity |
-|---|---|---|
-| **Many** | Real piece, but no edge left — the price will climb | Overhyped, skip |
-| **Zero** | **Sleeper — the actual opportunity** | Correctly ignored |
-
-A live example from one run: a 1999AW white-tag Miss Deanna driver's knit — genuinely one
-of the most historically significant pieces on the board — sat at ¥23,001 with **100 bids**
-and three days still to run. Sorting by bids puts it first. But a hundred people were
-already fighting over it, so it was never going to close anywhere near ¥23k. It ranked
-17th. Meanwhile 19 of the other 20 picks had zero bids — those are the ones you're early
-on.
-
-So the skill shows bid count in the table and feeds it into scoring two-sidedly: zero bids
-plus high rarity plus runway earns a **sleeper bonus**; five or more bids takes a penalty,
-because the current price is not the price you'll pay. It always sorts by score.
+Default sort is by score, but ask for **hot / most-bid / trending** and it sorts by bid
+count. One caution it states rather than penalizes: a hot lot's current price is a *floor*,
+not the close — a 100-bid piece at ¥23,001 with days left will finish far higher, and many
+Yahoo lots auto-extend (`自動延長`) when bid near the deadline.
 
 ## The scoring system (0–100)
 
