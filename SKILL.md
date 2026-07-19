@@ -16,9 +16,38 @@ description: >-
 
 # Archive Deal Finder
 
-Hunt underpriced archive menswear, score it, and hand the user a ranked Top 20 they
-can act on today. The user is a male collector shopping for himself. The whole point
-is **trustworthy, actionable leads** — a beautiful list of dead links is worthless.
+Hunt underpriced archive menswear, score it, and hand the user trustworthy, actionable
+leads. The user is a male collector shopping for himself. A beautiful list of dead links
+is worthless.
+
+## Canonical output — every full run looks like this
+
+This is the standard the user has signed off on. Match it every time unless they ask for
+something different for that run:
+
+1. **Scope = the fixed watchlist.** Pull all nine brands from `references/watchlist.md`,
+   men's only, applying each brand's Focus / Avoid / Budget. Don't improvise the roster.
+2. **Per-brand Top 10, and 10 is a floor.** One ranked table per brand. Where the
+   inventory exists, deliver a full 10 (search deeper before giving up). Where it truly
+   doesn't, deliver what's live and **state the count + reason** — never quietly serve 4.
+3. **Both auctions and fixed-price**, all categories (clothing + accessories), with the
+   `Type` and `Bids` columns; bids read as demand (hot lots flagged 🔓/🔥).
+4. **A brand-grouped photo gallery containing the FULL list.** Every item in the tables
+   gets a card. Pull thumbnails from the search-results page in the same pass (cheap —
+   no per-item fetch). Saved as a local HTML file, opened for the user. This is a
+   required deliverable, not an extra.
+5. **Honest verification.** Verify the priority/hot picks individually; mark the rest
+   "from live search." Re-check, don't trust stale data — inventory churns hourly.
+
+The failure mode to avoid is a short highlight reel when the market has 40 live listings.
+"Top 10" means ten rows and ten gallery cards when ten qualifying items exist.
+
+## The one rule that matters most: verify before you recommend
+
+The single biggest failure mode is handing the user listings that are already **sold
+or ended**. This destroys trust faster than anything else. Yahoo Auctions *search
+result* pages mix in recently-ended auctions, and summarizers happily report them as
+if live.
 
 ## The one rule that matters most: verify before you recommend
 
