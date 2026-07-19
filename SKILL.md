@@ -54,12 +54,14 @@ one" beats a confident dead link every time.
 
 ## Daily workflow
 
-1. **Set scope.** Default: brands = Margiela, Issey Miyake, CDG (incl. Homme Plus /
-   Homme / Junya), Yohji. Categories cover clothing **and accessories** — jackets,
-   coats, pants, tees, knits, plus bags, rings, bracelets, necklaces, belts, wallets.
-   Default budget context = flag anything under about 200 USD as "accessible," but still
-   surface pricier grails and mark them. If the user gave a ceiling, a brand focus, or a
-   category (pants / jackets / tees / knits / accessories), honor it.
+1. **Set scope.** The default run is the user's **fixed watchlist** in
+   `references/watchlist.md` — nine curated brands, **top 10 each**, men's only. Always
+   pull that exact roster unless the user names a different scope for that run; don't
+   silently drop or swap brands. For each brand, apply its **Focus** keywords to rank,
+   its **Avoid** terms to exclude, and its **Budget/Tier** as guidance (read the file
+   every run — it's the source of truth, and the user updates it). Categories cover
+   clothing **and accessories**. If the user gives a one-off ceiling, brand, or category,
+   honor that for that run without editing the watchlist.
 
 2. **Pull candidates from Yahoo.** Use the live search URL pattern in
    `references/sources.md` with the Japanese search terms from
@@ -142,10 +144,11 @@ one" beats a confident dead link every time.
 
 **Combined Top 20** (default) — one ranked table across all requested brands.
 
-**Per-brand Top 10** — when the user asks for "top N per brand" or a multi-brand survey:
-one ranked table *per brand*, each its own top 10, mixing all categories (jackets, pants,
-knits, bags, jewelry, etc.) rather than splitting by category. Use the same columns.
-Iterate the full roster in `references/brands_and_terms.md`, men's only.
+**Per-brand Top 10** — the default for a full run, and whenever the user asks for "top N
+per brand" or a multi-brand survey: one ranked table *per brand*, each its own top 10,
+mixing all categories (jackets, pants, knits, bags, jewelry, etc.) rather than splitting
+by category. Use the same columns. Iterate the fixed roster in `references/watchlist.md`
+(the user's curated nine), men's only, applying each brand's Focus/Avoid/Budget.
 
 **Honest scaling note:** verifying every row individually is the core rule, but a
 10-brands × 10-items survey is ~100 listings — too many to open one-by-one in a single
@@ -216,8 +219,11 @@ Anything scoring 80+ is a genuine "buy" flag; 65–79 is "worth a look."
 
 ## Reference files
 
-- `references/brands_and_terms.md` — brands, Japanese search keywords, category codes,
-  and the Margiela tag/era dating cheat sheet. Read this to build good searches.
+- `references/watchlist.md` — **the user's fixed 9-brand roster** with per-brand
+  Focus / Avoid / Budget / Tier. This is the default scope of every full run — read it
+  first, every time.
+- `references/brands_and_terms.md` — Japanese search keywords, category codes, and the
+  Margiela tag/era dating cheat sheet. Read this to build good searches.
 - `references/sources.md` — per-site tool reliability, Yahoo search/verify URL
   patterns, eBay/Grailed filtered-search URL patterns, and proxy logistics.
 - `references/scoring.md` — the full 0–100 scoring rubric with worked examples.
