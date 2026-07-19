@@ -68,6 +68,13 @@ h1 { font-size:20px; margin:0 0 4px; }
 .tag.hot { background:var(--hotbg); color:var(--hot); border-color:var(--hot); font-weight:700; }
 .tag.score { font-weight:700; color:var(--fg); }
 .why { font-size:12px; color:var(--muted); line-height:1.4; }
+.brandhead { margin:28px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--fg);
+             font-size:16px; font-weight:700; letter-spacing:.02em; }
+.brandhead .count { color:var(--muted); font-weight:400; font-size:13px; }
+.jump { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 4px; }
+.jump a { font-size:12px; text-decoration:none; color:var(--muted);
+          border:1px solid var(--line); border-radius:99px; padding:2px 10px; }
+.jump a:hover { color:var(--fg); border-color:var(--fg); }
 a.view { margin-top:auto; display:block; text-align:center; text-decoration:none;
          border:1px solid var(--line); border-radius:6px; padding:7px; font-size:12px;
          font-weight:600; color:var(--fg); }
@@ -118,6 +125,8 @@ def main() -> None:
     p.add_argument("-o", "--out", default="gallery.html")
     p.add_argument("-t", "--title", default="Archive finds")
     p.add_argument("--rate", type=float, default=150.0, help="yen per USD (default 150)")
+    p.add_argument("--flat", action="store_true",
+                   help="one flat grid instead of grouping by brand (default: group by brand)")
     p.add_argument("--open", action="store_true", help="open in browser when done")
     a = p.parse_args()
 
@@ -130,16 +139,35 @@ def main() -> None:
         sys.exit(f"items at index {missing} are missing required 'title' or 'url'")
 
     n_img = sum(1 for it in items if it.get("image"))
+
+    # Group by brand (preserving first-seen order) unless --flat or no brands present.
+    group = not a.flat and any(it.get("brand") for it in items)
+    if group:
+        brands: dict[str, list] = {}
+        for it in items:
+            brands.setdefault(it.get("brand") or "Other", []).append(it)
+        slug = lambda s: "".join(c if c.isalnum() else "-" for c in s.lower())
+        jump = '<div class="jump">' + "".join(
+            f'<a href="#{slug(b)}">{html.escape(b)} ({len(v)})</a>' for b, v in brands.items()
+        ) + "</div>"
+        sections = []
+        for b, v in brands.items():
+            head = (f'<div class="brandhead" id="{slug(b)}">{html.escape(b)} '
+                    f'<span class="count">&middot; {len(v)} items</span></div>')
+            grid = f'<div class="grid">{chr(10).join(card(it, a.rate) for it in v)}</div>'
+            sections.append(head + grid)
+        body = jump + "\n".join(sections)
+    else:
+        body = f'<div class="grid">{chr(10).join(card(it, a.rate) for it in items)}</div>'
+
     doc = f"""<!doctype html>
 <html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(a.title)}</title><style>{CSS}</style></head>
 <body>
 <h1>{html.escape(a.title)}</h1>
-<div class="sub">{len(items)} items &middot; {n_img} with photos &middot; ~&yen;{a.rate:.0f} = $1 &middot; click any photo to open the listing</div>
-<div class="grid">
-{chr(10).join(card(it, a.rate) for it in items)}
-</div>
+<div class="sub">{len(items)} items &middot; {n_img} with photos &middot; ~&yen;{a.rate:.0f} = $1 &middot; {'grouped by brand &middot; ' if group else ''}click any photo to open the listing</div>
+{body}
 </body></html>"""
 
     out = pathlib.Path(a.out).resolve()
