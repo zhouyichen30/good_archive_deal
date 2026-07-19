@@ -137,8 +137,12 @@ one" beats a confident dead link every time.
    than no gallery. Note the user's Desktop may be OneDrive-redirected
    (`~/OneDrive/Desktop`); check before writing there.
 
-8. **Deliver the results.** Ranked table (below) *plus* the gallery path. Lead with the
-   standout value calls in 2–4 bullets. Note proxy requirement for Yahoo buys.
+8. **Deliver the results.** Every run produces **two things, always**: (a) the ranked
+   table(s) in chat, and (b) a saved **HTML gallery file** — the gallery is a required
+   deliverable, not an optional extra. Give the user the file path (and open it with
+   `--open`). Lead with the standout value calls in 2–4 bullets. Note proxy requirement
+   for Yahoo buys. If for any reason the HTML can't be built, say so explicitly rather
+   than silently skipping it.
 
 ## Two output modes
 
