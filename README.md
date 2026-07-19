@@ -1,13 +1,17 @@
 # good_archive_deal
 
 A [Claude Code](https://claude.com/claude-code) skill that hunts **underpriced archive
-and vintage avant-garde menswear and accessories** — Margiela, Issey Miyake, Comme des
-Garçons, Yohji Yamamoto, Raf Simons, Helmut Lang, Undercover, Number (N)ine, Jean Paul
-Gaultier, Dries Van Noten and more — across Yahoo Auctions Japan, eBay, and Grailed,
-then scores and ranks the results.
+and vintage avant-garde menswear and accessories** across Yahoo Auctions Japan, eBay, and
+Grailed, then scores and ranks the results.
 
-Two modes: a **combined Top 20** across brands, or a **per-brand Top 10** survey of the
-whole roster.
+The default run works a **fixed personal watchlist** — a curated set of brands, each with
+its own Focus / Avoid / Budget — and returns a **per-brand Top 10** (10 is a floor, not a
+cap) plus a **brand-grouped photo gallery of the full list**. The watchlist lives in
+[`references/watchlist.md`](references/watchlist.md); edit that file to change what every
+run pulls. (A combined single-table Top 20 across brands is also available on request.)
+
+Two modes: a **combined Top 20** across brands, or the default **per-brand Top 10** of the
+watchlist roster.
 
 Coverage spans clothing (jackets, coats, pants, tees, knits) **and accessories** (bags,
 rings, bracelets, necklaces, belts, wallets). Accessories are judged on the same
@@ -44,20 +48,32 @@ The **Type** column tells you how you'd buy it — `Auction`, `即決` (buy-now)
 `Store/フリマ`. Plus the pieces it *rejected* and why — showing the filter's work rather
 than just claiming it ran.
 
-## Photo gallery
+## Photo gallery — the full list, grouped by brand
 
 Clothing is visual, and a table of links means opening twenty tabs to see what anything
-looks like. So each run also builds a **local HTML gallery** — a card grid of every find
-with its photo, price, bid count, deadline and a one-line reason, each photo linking
-straight to the listing:
+looks like. So every run also builds a **local HTML gallery** — a card grid **grouped by
+brand** (with a jump-nav) containing **every item in the tables**, not a highlight reel.
+Each card shows the photo, price, bid count, deadline and a one-line reason, and every
+photo links straight to the listing:
 
 ```bash
 python scripts/build_gallery.py items.json -o ~/Desktop/archive-finds.html --open
 ```
 
-It writes a *local* file on purpose: Yahoo's photos (`auctions.c.yimg.jp`) have no
-hotlink protection and load fine from disk, whereas a CSP-restricted hosted page blocks
-remote images and would render a wall of broken thumbnails.
+Photos come cheaply: each item's thumbnail is pulled from the **search-results page** in
+the same pass that lists it, so the whole list gets pictures without a fetch per item.
+It writes a *local* file on purpose — Yahoo's photos have no hotlink protection and load
+fine from disk, whereas a CSP-restricted hosted page blocks remote images and would
+render a wall of broken thumbnails. Items without a thumbnail still get a card.
+
+## At least 10 per brand
+
+"Top 10" is a floor, not a curated shortlist. A big-brand search routinely returns 30–50
+live listings, so a 4–5 item list is under-delivery, not scarcity. Each run fills a real
+10 per brand where the inventory exists (running a second, deeper search before giving
+up), and only reports fewer than 10 when a brand is genuinely thin — with the count and
+the reason stated ("only 4 pre-Raf Jil Sander men's pieces live; the rest were post-Raf,
+excluded"). A short list without that explanation is treated as a bug.
 
 ## Bid count is a demand signal, and it surfaces hot lots
 
@@ -133,13 +149,15 @@ python scripts/build_search_urls.py \
 
 ```
 .
-├── SKILL.md                     # workflow, the verify-before-recommend rule, output format
+├── SKILL.md                     # workflow, canonical output, verify-before-recommend rule
 ├── references/
+│   ├── watchlist.md             # the fixed brand roster (default scope) w/ per-brand focus
 │   ├── brands_and_terms.md      # JP search keywords, Margiela tag/era dating, line numbers
 │   ├── scoring.md               # the 0–100 rubric with worked examples
 │   └── sources.md               # per-site tool reliability, URL patterns, proxy logistics
 └── scripts/
-    └── build_search_urls.py     # generates Yahoo / eBay / Grailed search URLs
+    ├── build_search_urls.py     # generates Yahoo / eBay / Grailed search URLs
+    └── build_gallery.py         # renders the brand-grouped HTML photo gallery
 ```
 
 ## Things learned the hard way
