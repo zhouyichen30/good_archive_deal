@@ -115,10 +115,18 @@ one" beats a confident dead link every time.
    verified item-by-item, so give search URLs, not fake specific items). The URL
    patterns are in `references/sources.md`.
 
-7. **Build the photo gallery.** Clothing is visual — a table of links makes the user open
-   20 tabs to see what anything looks like. While verifying each item page, also grab its
-   **first photo URL** (ask the fetch for the main image on `auctions.c.yimg.jp`), then
-   render a local gallery:
+7. **Build the photo gallery — with the FULL list.** Clothing is visual; a table of links
+   makes the user open 20 tabs to see anything. The gallery must contain **every item in
+   the delivered tables** — the whole per-brand top 10s, not a hand-picked subset. If the
+   tables show 40 items, the gallery has 40 cards. A gallery that's a fraction of the
+   list is the same under-delivery bug as a short table.
+
+   **Get photos cheaply from the search page, not per-item fetches.** Every item's
+   thumbnail is already on the search-results page (URLs on `auc-pctr.c.yimg.jp` or
+   `auctions.c.yimg.jp`). So when you run each brand search, ask the fetch to return, for
+   every item, its `ITEM_URL` **and** its `THUMBNAIL_URL` on one line. That gives a photo
+   per item for the whole list in the searches you already run — no extra fetch per card.
+   (Only fall back to opening an item page for a photo when the search didn't yield one.)
 
    ```bash
    python scripts/build_gallery.py items.json -o <desktop>/archive-finds.html \
@@ -126,16 +134,16 @@ one" beats a confident dead link every time.
    ```
 
    Write `items.json` as an array of `{title, brand, score, type, price_yen, bids, ends,
-   url, image, why}` — only `title` and `url` are required. The script renders a
-   responsive card grid (photo, price, 🔥 bid count, ends, why) where every photo links
-   to the listing.
+   url, image, why}` — only `title` and `url` are required; `image` is the thumbnail. The
+   script groups by brand, renders a responsive card grid, and every photo links to the
+   listing. Items without a thumbnail still get a card (title/price/link) — include them
+   rather than dropping items just because a photo was missing.
 
    **Write it to a local file, not a published page.** Yahoo photos load fine from a
    local HTML file (no hotlink protection), but a CSP-restricted published page blocks
-   remote images and you'd ship a wall of broken thumbnails. Verify the image URLs
-   resolve (HTTP 200 + `image/*`) before building — a gallery of dead images is worse
-   than no gallery. Note the user's Desktop may be OneDrive-redirected
-   (`~/OneDrive/Desktop`); check before writing there.
+   remote images. Spot-check a sample of image URLs resolve (HTTP 200 + `image/*`) before
+   building. Note the user's Desktop may be OneDrive-redirected (`~/OneDrive/Desktop`);
+   check before writing there.
 
 8. **Deliver the results.** Every run produces **two things, always**: (a) the ranked
    table(s) in chat, and (b) a saved **HTML gallery file** — the gallery is a required
@@ -153,6 +161,21 @@ per brand" or a multi-brand survey: one ranked table *per brand*, each its own t
 mixing all categories (jackets, pants, knits, bags, jewelry, etc.) rather than splitting
 by category. Use the same columns. Iterate the fixed roster in `references/watchlist.md`
 (the user's curated nine), men's only, applying each brand's Focus/Avoid/Budget.
+
+**Actually fill the 10 — don't curate down to a few highlights.** "Top 10" means ten
+rows when ten qualifying men's items exist, not "the 4–5 I found most exciting." The
+searches routinely return 30–50 listings per big brand, so a short list is almost always
+under-delivery, not scarcity. Before concluding a brand is thin:
+1. Run the first search and count qualifying men's items after Avoid-filtering.
+2. If under 10, run a **second, deeper pass** with different terms — other garment words,
+   era/`〜期` names from the watchlist, `本人期`/`アーカイブ`, or a broader brand term —
+   because one query only sees one slice of inventory.
+3. Only report fewer than 10 after that second pass, and when you do, **state the count
+   and the reason explicitly** ("only 4 pre-Raf Jil Sander men's pieces live today; the
+   rest were post-Raf/+J, excluded"). A short list without that explanation is a bug.
+
+Thin/absent brands are fine to report honestly — the failure mode is silently showing 5
+when 10 exist, not showing 4 when only 4 exist.
 
 **Honest scaling note:** verifying every row individually is the core rule, but a
 10-brands × 10-items survey is ~100 listings — too many to open one-by-one in a single

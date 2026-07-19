@@ -25,6 +25,17 @@ https://auctions.yahoo.co.jp/search/search?p=<URL-encoded JP keywords>&n=50&mode
   and the full item URL as `https://auctions.yahoo.co.jp/jp/auction/XXXXXXXXX`, and to
   exclude women's/dresses/shoes/fragrance.
 
+## Yahoo Auctions — thumbnails from the search page (for the gallery)
+
+Every item's photo is already on the search-results page, so you get one photo per item
+for free from the search you already run — no per-item fetch. In the search fetch prompt,
+ask for each item's `ITEM_URL` **and** `THUMBNAIL_URL` on the same line. Thumbnail URLs
+look like `https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/.../i-img...jpg` (or a plain
+`auctions.c.yimg.jp/...` image URL); both resolve and load in a local HTML file. This is
+how the gallery shows the full list cheaply. WebFetch's extraction can be partial on a
+busy page — if some rows come back without a thumbnail, still include the item (card with
+no photo) rather than dropping it.
+
 ## Yahoo Auctions — item verification (REQUIRED before recommending)
 
 Fetch the individual page directly:
