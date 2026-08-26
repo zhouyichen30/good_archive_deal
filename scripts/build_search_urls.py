@@ -29,6 +29,11 @@ BRAND_JP = {
     "cdg-homme-plus": "コムデギャルソン オムプリュス",
     "junya": "ジュンヤワタナベ",
     "yohji": "ヨウジヤマモト",
+    "helmut": "ヘルムートラング",
+    "dries": "ドリスヴァンノッテン",
+    "lemaire": "ルメール",
+    "jil": "ジルサンダー",
+    "ccp": "カールクリスチャンポエル",
     "unkruid": "アンクルイド",
     "unkruid-roman": "unkruid",
 }
@@ -42,6 +47,11 @@ BRAND_EN = {
     "cdg-homme-plus": "Comme des Garcons Homme Plus",
     "junya": "Junya Watanabe",
     "yohji": "Yohji Yamamoto",
+    "helmut": "Helmut Lang",
+    "dries": "Dries Van Noten",
+    "lemaire": "Lemaire",
+    "jil": "Jil Sander",
+    "ccp": "Carol Christian Poell",
     "unkruid": "Unkruid",
     "unkruid-roman": "Unkruid",
 }
