@@ -29,6 +29,8 @@ BRAND_JP = {
     "cdg-homme-plus": "コムデギャルソン オムプリュス",
     "junya": "ジュンヤワタナベ",
     "yohji": "ヨウジヤマモト",
+    "unkruid": "アンクルイド",
+    "unkruid-roman": "unkruid",
 }
 BRAND_EN = {
     "margiela": "Maison Martin Margiela",
@@ -40,11 +42,14 @@ BRAND_EN = {
     "cdg-homme-plus": "Comme des Garcons Homme Plus",
     "junya": "Junya Watanabe",
     "yohji": "Yohji Yamamoto",
+    "unkruid": "Unkruid",
+    "unkruid-roman": "Unkruid",
 }
 
 TYPE_JP = {
     "jacket": "ジャケット", "coat": "コート", "pants": "パンツ",
     "tee": "Tシャツ", "shirt": "シャツ", "knit": "ニット",
+    "cap": "キャップ",  # no dedicated eBay cat id here — falls back to all men's
     # accessories
     "bag": "バッグ", "ring": "リング", "bracelet": "ブレスレット",
     "necklace": "ネックレス", "belt": "ベルト", "wallet": "財布",

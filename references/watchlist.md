@@ -1,7 +1,7 @@
 # The Watchlist — fixed default roster
 
 This is the user's curated brand list. **Every default / multi-brand run pulls exactly
-these nine brands, top 10 each, men's only.** Don't substitute or drop brands unless the
+these ten brands, top 10 each, men's only.** Don't substitute or drop brands unless the
 user names a different scope for that run. For each brand: search the primary terms, then
 **rank by the Focus list**, **exclude the Avoid list**, keep within the Budget as
 context, and order brands by Tier when trimming.
@@ -75,11 +75,29 @@ Only when the budget rises; still surface standouts. Search: `カールクリス
 `CAROL CHRISTIAN POELL`, `CCP`.
 - **Focus:** Object-Dyed Leather, Tornado Zip, Prosthetic/Drip boots.
 
+## 10. Unkruid (2023–, Antwerp) — modern, new-brand watch
+Belgian, founded 2023 (first collection 2024SS), small-scale production with each garment
+hand-numbered. Natural-fibre cloth from artisan mills, chosen for how it ages through wear
+and washing. Search: `unkruid`, `アンクルイド`, `UNKRUID`.
+- **Focus:** Shepherds Coat (waxed cotton canvas, and the wool/alpaca loden version),
+  Sunday Best Jacket, Late Night Jacket (corduroy / coutil), baggy pants, wool pullovers,
+  Dream caps (`キャップ`).
+- **Avoid:** nothing brand-specific yet — just the standard women's/exclusion filters.
+  Watch for misspellings and unrelated Dutch-language "onkruid" listings.
+- **Budget:** no resale comps exist yet. Retail anchors it — the Shepherds Coat is ~$1,800
+  at Neighbour — so treat anything meaningfully under retail as the signal, and expect to
+  judge on retail delta rather than archive scarcity.
+- **Reality check:** this is a two-year-old label, not archive. Secondary supply on Yahoo
+  Auctions is near zero most days, and a zero-result run for Unkruid is an honest result,
+  not a missed search. Report the count and move on rather than padding with lookalikes.
+  Japanese distribution runs through V.O.F / VISION OF FASHION (CONTEXT TOKYO, Otokage in
+  Kyoto, kune in Iwate, N id Tokyo), so what does surface tends to come out of those.
+
 ---
 
 ## Run order
 
-Default multi-brand run = all nine, in this order (tier-weighted): Issey Miyake Men →
+Default multi-brand run = all ten, in this order (tier-weighted): Issey Miyake Men →
 Margiela → Yohji PH → Helmut Lang → Dries Van Noten → CDG Homme Plus → Lemaire →
-Jil Sander → CCP. Top 10 each, men's, mixed categories, then build the brand-grouped
-photo gallery.
+Jil Sander → CCP → Unkruid. Top 10 each, men's, mixed categories, then build the
+brand-grouped photo gallery.

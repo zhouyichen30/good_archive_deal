@@ -26,6 +26,12 @@ garment term (e.g. `マルジェラ レプリカ ジャケット`).
 | Dries Van Noten | `ドリスヴァンノッテン`, `DRIES VAN NOTEN` | `アーカイブ`, `フローラル`, `刺繍` (embroidery), `タイダイ` |
 | Prada (archive) | `プラダ`, `PRADA` | `アーカイブ`, `ナイロン`, `Sport`, era refs `1999`, `2000` |
 | Vivienne Westwood | `ヴィヴィアンウエストウッド` | `MAN`, `アーミット` (Armour), `オーブ` (orb), `アーカイブ` |
+| Unkruid | `unkruid`, `アンクルイド` | `UNKRUID`, `アントワープ`, piece names `シェパーズコート`/`Shepherds Coat`, `Sunday Best`, `Late Night` |
+
+Unkruid is the odd one out here: founded 2023, so there are no era names and almost no
+secondary supply. Search the plain brand terms (both spellings — sellers use the roman
+`unkruid` at least as often as `アンクルイド`) and expect a small or empty result set. Do
+not pad it with visually similar Belgian/pastoral brands.
 
 Era/period names (`〜期`) are how Japanese sellers title archive pieces — they're the
 highest-signal keywords for these brands after the brand name itself. The ones above came

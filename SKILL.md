@@ -25,7 +25,7 @@ is worthless.
 This is the standard the user has signed off on. Match it every time unless they ask for
 something different for that run:
 
-1. **Scope = the fixed watchlist.** Pull all nine brands from `references/watchlist.md`,
+1. **Scope = the fixed watchlist.** Pull all ten brands from `references/watchlist.md`,
    men's only, applying each brand's Focus / Avoid / Budget. Don't improvise the roster.
 2. **Per-brand Top 10, and 10 is a floor.** One ranked table per brand. Where the
    inventory exists, deliver a full 10 (search deeper before giving up). Where it truly
@@ -84,7 +84,7 @@ one" beats a confident dead link every time.
 ## Daily workflow
 
 1. **Set scope.** The default run is the user's **fixed watchlist** in
-   `references/watchlist.md` — nine curated brands, **top 10 each**, men's only. Always
+   `references/watchlist.md` — ten curated brands, **top 10 each**, men's only. Always
    pull that exact roster unless the user names a different scope for that run; don't
    silently drop or swap brands. For each brand, apply its **Focus** keywords to rank,
    its **Avoid** terms to exclude, and its **Budget/Tier** as guidance (read the file
@@ -189,7 +189,7 @@ one" beats a confident dead link every time.
 per brand" or a multi-brand survey: one ranked table *per brand*, each its own top 10,
 mixing all categories (jackets, pants, knits, bags, jewelry, etc.) rather than splitting
 by category. Use the same columns. Iterate the fixed roster in `references/watchlist.md`
-(the user's curated nine), men's only, applying each brand's Focus/Avoid/Budget.
+(the user's curated ten), men's only, applying each brand's Focus/Avoid/Budget.
 
 **Actually fill the 10 — don't curate down to a few highlights.** "Top 10" means ten
 rows when ten qualifying men's items exist, not "the 4–5 I found most exciting." The
@@ -275,7 +275,7 @@ Anything scoring 80+ is a genuine "buy" flag; 65–79 is "worth a look."
 
 ## Reference files
 
-- `references/watchlist.md` — **the user's fixed 9-brand roster** with per-brand
+- `references/watchlist.md` — **the user's fixed 10-brand roster** with per-brand
   Focus / Avoid / Budget / Tier. This is the default scope of every full run — read it
   first, every time.
 - `references/brands_and_terms.md` — Japanese search keywords, category codes, and the
