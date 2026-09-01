@@ -1,2 +1,5 @@
 __pycache__/
 *.py[cod]
+
+# Node deps for the Neon config tooling
+node_modules/
