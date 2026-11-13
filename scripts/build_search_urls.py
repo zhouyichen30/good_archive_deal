@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Build Yahoo Auctions live-search URLs and eBay filtered-search URLs.
+"""Build Yahoo Auctions live-search URLs plus eBay / Grailed / 2nd Street browse URLs.
 
 Yahoo search pages are fetched with WebFetch to gather candidates (then each item
-page is verified individually). eBay/Grailed URLs are handed to the user to browse,
-since those sites block automated fetching.
+page is verified individually). eBay, Grailed and 2nd Street (2ndstreet.jp) URLs are
+handed to the user to browse, since those sites block automated fetching.
 
 Usage examples:
   python build_search_urls.py --brand margiela --type jacket
@@ -78,6 +78,11 @@ def grailed_url(keywords: str) -> str:
     return "https://www.grailed.com/shop?query=" + urllib.parse.quote(keywords)
 
 
+def secondstreet_url(jp_keywords: str) -> str:
+    # 2nd Street is a Japanese site, so it gets the Japanese keywords, not English.
+    return "https://www.2ndstreet.jp/search?keyword=" + urllib.parse.quote(jp_keywords)
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--brand", action="append", default=[],
@@ -113,6 +118,10 @@ def main() -> None:
     print("\n=== Grailed (browse link) ===")
     for _jp, en, _t in combos:
         print(f"[{en}]\n  {grailed_url(en)}")
+
+    print("\n=== 2nd Street Japan (browse link — fixed-price store stock, needs a proxy) ===")
+    for jp, _en, _t in combos:
+        print(f"[{jp}]\n  {secondstreet_url(jp)}")
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ name: archive-deal-finder
 description: >-
   Find underpriced archive/vintage avant-garde menswear (Maison Martin Margiela,
   Issey Miyake, Comme des Garçons, Yohji Yamamoto, and similar Japanese/Belgian
-  designers) across Yahoo Auctions Japan, eBay, Grailed, and Depop, then score and
+  designers) across Yahoo Auctions Japan, eBay, Grailed, Depop, and 2nd Street Japan, then score and
   rank the best deals. Covers clothing AND accessories — jackets, pants, tees, knits,
   plus bags, rings, bracelets, necklaces, and belts. Produces a ranked "Top 20 today"
   list with a 0–100 value score per item. Use this skill whenever the user asks to find
@@ -73,7 +73,8 @@ Tools behave very differently per site. Work with reality instead of fighting it
   individual item pages. This is the primary, verifiable source. Buying requires a
   proxy (Buyee / ZenMarket / FromJapan) since it won't ship abroad or take foreign
   cards — factor ~10–15% fees into "is this still a deal."
-- **eBay, Grailed, Depop, 2nd Street** — these **block WebFetch** (timeout / 403).
+- **eBay, Grailed, Depop, 2nd Street (2ndstreet.jp)** — these **block WebFetch**
+  (timeout / 403).
   Do NOT claim specific verified listings from them. Instead, build correctly-filtered
   **live search URLs** the user clicks and browses themselves. This sidesteps dead
   links entirely because they see eBay's live page directly.
@@ -140,8 +141,9 @@ one" beats a confident dead link every time.
    score combines underpricing vs sold comps, rarity/archive significance, condition,
    line desirability, and buyability.
 
-6. **Build eBay/Grailed browse links** for the same brands/types (they can't be
-   verified item-by-item, so give search URLs, not fake specific items). The URL
+6. **Build eBay / Grailed / 2nd Street browse links** for the same brands/types (they
+   can't be verified item-by-item, so give search URLs, not fake specific items).
+   2nd Street (2ndstreet.jp) takes the **Japanese** keywords, like Yahoo. The URL
    patterns are in `references/sources.md`.
 
 7. **Build the photo gallery — with the FULL list.** Clothing is visual; a table of links
@@ -257,9 +259,10 @@ actually working rather than just asserting it did.
 
 Then:
 - **Standout value calls** — 2–4 bullets on the best score-to-price picks and why.
-- **Browse-yourself (eBay/Grailed)** — the filtered search links, clearly labeled as
-  live searches the user opens directly (not verified specific items).
-- **Buying note** — reminder that Yahoo needs a proxy (~10–15% fees).
+- **Browse-yourself (eBay / Grailed / 2nd Street)** — the filtered search links,
+  clearly labeled as live searches the user opens directly (not verified specific
+  items). 2nd Street is fixed-price Japanese store stock.
+- **Buying note** — reminder that Yahoo and 2nd Street need a proxy (~10–15% fees).
 
 ## Scoring at a glance
 
@@ -281,7 +284,7 @@ Anything scoring 80+ is a genuine "buy" flag; 65–79 is "worth a look."
 - `references/brands_and_terms.md` — Japanese search keywords, category codes, and the
   Margiela tag/era dating cheat sheet. Read this to build good searches.
 - `references/sources.md` — per-site tool reliability, Yahoo search/verify URL
-  patterns, eBay/Grailed filtered-search URL patterns, and proxy logistics.
+  patterns, eBay/Grailed/2nd Street search URL patterns, and proxy logistics.
 - `references/scoring.md` — the full 0–100 scoring rubric with worked examples.
-- `scripts/build_search_urls.py` — builds Yahoo live-search + eBay filtered-search
+- `scripts/build_search_urls.py` — builds Yahoo live-search + eBay/Grailed/2nd Street
   URLs from a brand/keyword/price so you don't hand-assemble them each run.

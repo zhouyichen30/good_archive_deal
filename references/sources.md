@@ -12,7 +12,7 @@ per site instead of pretending they're all the same.
 | eBay | NO — times out / 403 on item pages | Give the user filtered **search URLs** to browse; don't claim specific items. For watches, eBay's Authenticity Guarantee (physical inspection over ~$2k) is a real advantage worth flagging. |
 | Grailed | NO — 403 | Same: search/browse links only. |
 | Depop | NO — 403/JS-heavy | Search links only. |
-| 2nd Street (2ndstreet.jp) | NO — 403 | Search links only, or note you can't read it. |
+| 2nd Street (2ndstreet.jp) | NO — 403 | Japan's biggest used-clothing chain; fixed-price store stock. Hand the user **Japanese-keyword search links** (see below); don't claim specific items. |
 | WebSearch (AI snippets) | Unreliable for specifics | It fabricates price+desc combos and mis-reports gender. Use only for background, never as a verified listing. |
 
 ## Yahoo Auctions — search URL pattern (gather candidates)
@@ -71,6 +71,22 @@ https://www.grailed.com/shop?query=<keywords>
 ```
 Give as a browse link; Grailed blocks automated reads.
 
+## 2nd Street Japan — browse URL
+
+```
+https://www.2ndstreet.jp/search?keyword=<URL-encoded JP keywords>
+```
+- Use the **Japanese** brand + garment terms (e.g. `マルジェラ ニット`), same as Yahoo —
+  it's a Japanese site and its titles are in Japanese.
+- Everything is **fixed-price** used stock from ~900 stores, so there are no bids to
+  read; it fills the gap between Yahoo auctions and Grailed asking prices. Label it
+  `Store/フリマ` if the user brings a specific item back to score.
+- Online stock is shared with the physical stores, so a piece can sell in-store at any
+  time — another reason to hand over live search links, not item links.
+- Give as a browse link; automated reads get 403. If a fetch ever succeeds, treat it
+  like PayPay フリマ: verify the item page before recommending it.
+- `scripts/build_search_urls.py` prints these links for every brand+garment pair.
+
 ## Buying logistics (Yahoo Auctions is Japan-domestic)
 
 Yahoo Auctions won't ship internationally or accept foreign cards/logins directly. To
@@ -82,3 +98,6 @@ what the piece is worth.
 
 A `入札する` → `ログインしてください` prompt means "log in," NOT "sold." That login
 wall is exactly why a proxy is needed — it is not a dead listing.
+
+2nd Street's online store also needs a Japanese address, so it goes through a proxy
+too (ZenMarket, FromJapan, Rakufun, etc.). Budget the same ~10–15% overhead.

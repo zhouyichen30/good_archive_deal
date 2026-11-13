@@ -1,8 +1,8 @@
 # good_archive_deal
 
 A [Claude Code](https://claude.com/claude-code) skill that hunts **underpriced archive
-and vintage avant-garde menswear and accessories** across Yahoo Auctions Japan, eBay, and
-Grailed, then scores and ranks the results.
+and vintage avant-garde menswear and accessories** across Yahoo Auctions Japan, eBay,
+Grailed, and 2nd Street Japan, then scores and ranks the results.
 
 The default run works a **fixed personal watchlist** — a curated set of brands, each with
 its own Focus / Avoid / Budget — and returns a **per-brand Top 10** (10 is a floor, not a
@@ -156,7 +156,7 @@ python scripts/build_search_urls.py \
 │   ├── scoring.md               # the 0–100 rubric with worked examples
 │   └── sources.md               # per-site tool reliability, URL patterns, proxy logistics
 └── scripts/
-    ├── build_search_urls.py     # generates Yahoo / eBay / Grailed search URLs
+    ├── build_search_urls.py     # generates Yahoo / eBay / Grailed / 2nd Street search URLs
     └── build_gallery.py         # renders the brand-grouped HTML photo gallery
 ```
 
@@ -171,7 +171,8 @@ These are encoded in the skill because each one cost a wasted search:
   `本人期` and `希少` to *rank* results, never to *fetch* them.
 - **eBay, Grailed, Depop, and 2nd Street block automated fetching** (timeout / 403). So
   the skill hands you pre-filtered live search URLs for those instead of pretending to
-  have verified specific listings.
+  have verified specific listings. 2nd Street (2ndstreet.jp) gets Japanese-keyword
+  links, since it's Japan's largest used-clothing chain and lists in Japanese.
 - **Yahoo search-result pages include ended auctions.** Only the individual item page
   tells the truth. Verify there, always.
 - **`入札する` → `ログインしてください` means "log in", not "sold."** That login wall is
@@ -179,7 +180,7 @@ These are encoded in the skill because each one cost a wasted search:
 
 ## Buying from Yahoo Auctions
 
-Yahoo Auctions Japan doesn't ship internationally or accept foreign cards. Route the
+Yahoo Auctions Japan (and 2nd Street's online store) doesn't ship internationally or accept foreign cards. Route the
 item URL through a proxy — [Buyee](https://buyee.jp), ZenMarket, or FromJapan — which
 bids on your behalf and forwards the item. Budget **~10–15%** on top for fees and
 international shipping. The skill factors that overhead in before calling something a
